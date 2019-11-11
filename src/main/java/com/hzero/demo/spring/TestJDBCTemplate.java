@@ -1,7 +1,7 @@
 package com.hzero.demo.spring;
 
+import com.hzero.demo.spring.jdbctemplate.bo.impl.CustomerBOImpl;
 import com.hzero.demo.spring.jdbctemplate.model.Customer;
-import com.hzero.demo.spring.jdbctemplate.service.CustomerService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -17,7 +17,7 @@ public class TestJDBCTemplate {
     public void test() {
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
-        CustomerService customerService = (CustomerService) applicationContext.getBean("customerService");
+        CustomerBOImpl customerService = (CustomerBOImpl) applicationContext.getBean("customerService");
 
         //待添加的客户集
         List<Customer> customers = new ArrayList<Customer>();

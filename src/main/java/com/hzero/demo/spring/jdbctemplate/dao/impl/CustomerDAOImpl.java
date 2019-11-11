@@ -16,6 +16,8 @@ import java.util.List;
 
 /**
  * 实现customerdao接口里定义的方法
+ * 1、增删改操作都可通过update方法实现
+ * 2、批量插入使用batchUpdate，传入一个业务实体的LIST集合
  */
 @Repository(value = "customerDao")
 public class CustomerDAOImpl implements ICustomerDAO {
@@ -28,6 +30,7 @@ public class CustomerDAOImpl implements ICustomerDAO {
     public void addCustomer(Customer customer) {
 
         String sql = "insert into customer values(?,?,?)";
+
         //如果ID是自增，则传入null，如果不是自增，则需要赋值
         jt.update(sql, customer.getId(), customer.getName(), customer.getAge());
 
